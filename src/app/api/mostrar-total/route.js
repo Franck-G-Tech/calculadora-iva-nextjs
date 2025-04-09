@@ -19,7 +19,7 @@ async function callCalcularIva(monto, porcentajeIva) {
 
 // Función para llamar a la API de sumar-iva
 async function callSumarIva(monto, ivaCalculado) {
-  const res = await fetch(new URL('/api/sumar-iva', process.env.NEXT_PUBLIC_VERCEL_URL || 'http://localhost:3000'), {
+  const res = await fetch(new URL('/api/sumar-iva', process.env.NEXT_PUBLIC_VERCEL_URL || 'https://calculadora-iva-nextjs.vercel.app'), {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
