@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 
 // Función para llamar a la API de calcular-iva
 async function callCalcularIva(monto, porcentajeIva) {
-  const res = await fetch(new URL('/api/calcular-iva', process.env.NEXT_PUBLIC_VERCEL_URL || 'http://localhost:3000'), {
+  const res = await fetch(new URL('/api/calcular-iva', process.env.NEXT_PUBLIC_VERCEL_URL || 'https://calculadora-iva-nextjs.vercel.app'), {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
