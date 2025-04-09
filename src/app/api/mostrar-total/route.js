@@ -54,9 +54,10 @@ export async function POST(request) {
     const totalConIva = await callSumarIva(montoNumerico.toString(), ivaCalculado.toString()); // Convertir a string para la llamada interna
 
     return NextResponse.json({
-      montoBase: montoNumerico.toFixed(2),
-      ivaCalculado: ivaCalculado.toFixed(2),
-      totalConIva: totalConIva.toFixed(2),
+      //montoBase: montoNumerico.toFixed(2),
+      //ivaCalculado: ivaCalculado.toFixed(2),
+      //totalConIva: totalConIva.toFixed(2),
+      "montobase":100
     });
 
   } catch (error) {
