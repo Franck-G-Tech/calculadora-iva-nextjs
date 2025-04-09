@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-// Función para llamar a la API de calcular-iva
+// Función para llamar a la API de calcular-iva f
 async function callCalcularIva(monto, porcentajeIva) {
   const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}` : 'http://localhost:3000';
   const url = new URL('/api/calcular-iva', baseUrl);
