@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
 
-// Función para llamar a la API de calcular-iva f
+// Función para llamar a la API de calcular-iva
 async function callCalcularIva(monto, porcentajeIva) {
-  const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}` : 'http://localhost:3000';
+  const baseUrl = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
   const url = new URL('/api/calcular-iva', baseUrl);
   const res = await fetch(url, {
     method: 'POST',
@@ -21,7 +21,7 @@ async function callCalcularIva(monto, porcentajeIva) {
 
 // Función para llamar a la API de sumar-iva
 async function callSumarIva(monto, ivaCalculado) {
-  const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}` : 'http://localhost:3000';
+  const baseUrl = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
   const url = new URL('/api/sumar-iva', baseUrl);
   const res = await fetch(url, {
     method: 'POST',
