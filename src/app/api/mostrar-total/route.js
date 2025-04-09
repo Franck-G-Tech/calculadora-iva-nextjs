@@ -2,9 +2,7 @@ import { NextResponse } from 'next/server';
 
 // Función para llamar a la API de calcular-iva
 async function callCalcularIva(monto, porcentajeIva) {
-  const baseUrl = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
-  const url = new URL('/api/calcular-iva', baseUrl);
-  const res = await fetch(url, {
+  const res = await fetch('/api/calcular-iva', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -21,9 +19,7 @@ async function callCalcularIva(monto, porcentajeIva) {
 
 // Función para llamar a la API de sumar-iva
 async function callSumarIva(monto, ivaCalculado) {
-  const baseUrl = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
-  const url = new URL('/api/sumar-iva', baseUrl);
-  const res = await fetch(url, {
+  const res = await fetch('/api/sumar-iva', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -54,8 +50,8 @@ export async function POST(request) {
       return NextResponse.json({ error: 'Los campos "monto" y "porcentajeIva" deben ser números.' }, { status: 400 });
     }
 
-    const ivaCalculado = await callCalcularIva(montoNumerico, porcentajeNumerico);
-    const totalConIva = await callSumarIva(montoNumerico, ivaCalculado);
+    const ivaCalculado = await callCalcularIva(montoNumerico.toString(), porcentajeNumerico.toString()); // Convertir a string para la llamada interna
+    const totalConIva = await callSumarIva(montoNumerico.toString(), ivaCalculado.toString()); // Convertir a string para la llamada interna
 
     return NextResponse.json({
       montoBase: montoNumerico.toFixed(2),
