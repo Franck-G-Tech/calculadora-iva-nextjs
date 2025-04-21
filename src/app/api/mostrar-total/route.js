@@ -1,14 +1,20 @@
 import { NextResponse } from 'next/server';
+import { POST } from '../calcular-iva';
+import { POST } from '../sumar-iva';
 
 // Función para llamar a la API de calcular-iva
 async function callCalcularIva(monto, porcentajeIva) {
+/*   
   const res = await fetch('/api/calcular-iva', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ monto, porcentajeIva }),
-  });
+  }); */
+
+  
+
   if (!res.ok) {
     const error = await res.json();
     throw new Error(error.error || 'Error al calcular el IVA');
